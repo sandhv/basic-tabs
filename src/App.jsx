@@ -1,35 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Tab, TabPanel } from './components/Tabs'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export default function App() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const handleClick = (index) => setActiveIndex(index);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <main>
+      <TabPanel>
+        <Tab onClick={() => handleClick(0)} label="Tab uno" isActive={activeIndex === 0}>
+          Contenido uno
+        </Tab>
+        <Tab onClick={() => handleClick(1)} label="Tab dos" isActive={activeIndex === 1}>
+          Contenido dos
+        </Tab>
+        <Tab onClick={() => handleClick(2)} label="Tab tres" isActive={activeIndex === 2}>
+          Contenido tres
+        </Tab>
+      </TabPanel>
+    </main>
   )
 }
 
-export default App
