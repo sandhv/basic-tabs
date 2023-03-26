@@ -13,7 +13,7 @@ export const Tab = ({ onClick, label, isActive, children }) => {
     return (
         <div>
             <button onClick={onClick}
-            style={{color:isActive? 'green': 'red'}}>{label}</button>
+            style={{color:isActive? 'green': 'white'}}>{label}</button>
             {isActive && <div>{children}</div>}
         </div>
     )
